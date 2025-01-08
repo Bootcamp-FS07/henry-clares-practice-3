@@ -206,9 +206,9 @@ class Game {
     let message =
       this.score[Player.X] === this.score[Player.O]
         ? "It's a draw!"
-        : this.score[Player.X] > this.score[Player.O]
-          ? `Player 2 (${Player.O}) wins!`
-          : `Player 1 (${Player.X}) wins!`;
+        : this.score[Player.X] < this.score[Player.O]
+          ? `Player 1 (${Player.O}) wins!`
+          : `Player 2 (${Player.X}) wins!`;
 
     this.modalInfo.setContent(message);
 

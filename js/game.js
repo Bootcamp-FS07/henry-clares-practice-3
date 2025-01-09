@@ -193,7 +193,9 @@ class Game {
     this.score[this.playerState.currentPlayer]++;
     this.updateScores();
 
-    this.modalInfo.setContent(`Player ${this.playerState.currentPlayer} wins!`);
+    this.modalInfo.setContent(
+      `${this.playerName[this.playerState.currentPlayer]} (${this.playerState.currentPlayer}) wins!`,
+    );
     this.modalInfo.open();
   }
 
@@ -222,8 +224,8 @@ class Game {
       this.score[Player.X] === this.score[Player.O]
         ? "It's a draw!"
         : this.score[Player.X] < this.score[Player.O]
-          ? `Player 1 (${Player.O}) wins!`
-          : `Player 2 (${Player.X}) wins!`;
+          ? `${this.playerName[Player.O]} (${Player.O}) wins!`
+          : `${this.playerName[Player.X]} (${Player.X}) wins!`;
 
     this.modalInfo.setContent(message);
 

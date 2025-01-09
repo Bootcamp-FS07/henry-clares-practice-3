@@ -66,6 +66,28 @@
         <div class="bg-white p-6 rounded shadow-md">
           <h2 class="text-xl mb-4">Game settings</h2>
           <form id="configForm">
+            <label for="player1" class="block mb-2 font-[500]"
+              >Player 1 name:</label
+            >
+            <input
+              type="text"
+              id="player1"
+              name="player1"
+              class="border p-2 w-full mb-4"
+              required
+            />
+
+            <label for="player2" class="block mb-2 font-[500]"
+              >Player 2 name:</label
+            >
+            <input
+              type="text"
+              id="player2"
+              name="player2"
+              class="border p-2 w-full mb-4"
+              required
+            />
+
             <label for="boardSize" class="block mb-2 font-[500]"
               >Board size:</label
             >
@@ -76,6 +98,7 @@
               min="3"
               class="border p-2 w-full mb-4"
               required
+              pattern="[3-9]"
             />
             <div class="flex justify-end">
               <button

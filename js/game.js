@@ -19,6 +19,11 @@ class Game {
       [Player.O]: 0,
     };
 
+    this.playerName = {
+      [Player.O]: "Player 1",
+      [Player.X]: "Player 2",
+    };
+
     this.gameOver = false;
     this.modalInfo = new Modal(
       document.getElementById("modal-info"),
@@ -49,8 +54,16 @@ class Game {
     document.getElementById("configForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const boardSize = parseInt(document.getElementById("boardSize").value);
+      const player1Name = document.getElementById("player1").value;
+      const player2Name = document.getElementById("player2").value;
+
+      this.playerName[Player.O] = player1Name;
+      this.playerName[Player.X] = player2Name;
+
       this.board.resetBoard(boardSize);
+      this.updateTitle();
       this.updateSizeInfo();
+      this.updateScores();
       this.renderBoard();
       this.modalForm.close();
     });
@@ -62,12 +75,14 @@ class Game {
 
   updateTitle() {
     const title = document.getElementById("player");
-    title.innerText = this.playerState.getPlayerTurnText();
+    title.innerText = this.playerState.getPlayerTurnText(
+      this.playerName[this.playerState.currentPlayer],
+    );
   }
 
   updateScores() {
     const scoreElement = document.getElementById("score");
-    scoreElement.innerText = `Player 1 (${Player.O}): ${this.score[Player.O]} - Player 2 (${Player.X}): ${this.score[Player.X]}`;
+    scoreElement.innerText = `${this.playerName[Player.O]} (${Player.O}): ${this.score[Player.O]} - ${this.playerName[Player.X]} (${Player.X}): ${this.score[Player.X]}`;
   }
 
   updateSizeInfo() {

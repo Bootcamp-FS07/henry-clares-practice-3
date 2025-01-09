@@ -21,3 +21,10 @@ Update the README file to include detailed instructions for running the project 
 
 **Deadline: Thursday, January 9th 2024.**
 
+### Running the Project
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run `npm install -g live-server` to install live-server.
+4. Run `live-server` to start the development server.
+5. Open your browser and navigate to `http://localhost:8080`.
